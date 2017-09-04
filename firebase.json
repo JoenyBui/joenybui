@@ -1,0 +1,6 @@
+{
+  "items": {
+    ".read": true,
+    ".write": false
+  }
+}
