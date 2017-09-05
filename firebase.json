@@ -1,6 +1,14 @@
 {
-  "items": {
-    ".read": true,
-    ".write": false
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "src",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
