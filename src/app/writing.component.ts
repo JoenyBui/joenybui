@@ -7,6 +7,12 @@ import {
   Output
 } from '@angular/core';
 
+// import 'tinymce';
+// import 'tinymce/themes/modern';
+//
+// import 'tinymce/plugins/table';
+// import 'tinymce/plugins/link';
+
 @Component({
   selector: 'writing-component',
   template: `<textarea id="{{elementId}}"></textarea>`
@@ -21,6 +27,8 @@ export class WritingComponent implements AfterViewInit, OnDestroy {
     tinymce.init({
       selector: '#' + this.elementId,
       plugins: ['link', 'paste', 'table'],
+      menubar: ['view', 'insert'],
+      // toolbar: ['image'],
       skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;

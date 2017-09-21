@@ -7,7 +7,8 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 
-import {BlogComponent} from "./blog.component"
+import {HomeComponent} from "./home.component";
+import {BlogComponent} from "./blog.component";
 import {WritingComponent} from "./writing.component";
 
 import {environment} from '../environments/environment';
@@ -17,6 +18,7 @@ import {AppRoutingModule} from "./app-routing.module";
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     BlogComponent,
     WritingComponent
   ],
