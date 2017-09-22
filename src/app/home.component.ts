@@ -1,24 +1,48 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from '@angular/router';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectFactory, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
+  items: FirebaseListObservable<any[]>;
+  home: FirebaseObjectObservable<any>;
+
   title = 'app';
   fullName = 'Joeny Bui';
   jobTitle = 'Software Developer';
   email = 'joeny.bui@gmail.com';
-  about = "I'm a scientific software developer with a background in structural engineering. I'm interested in all " +
-    "aspects of programming, but my current focus is in machine learning, big data, and full-stack web development.";
+  about = "";
   website = 'https://www.joenybui.com';
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              db: AngularFireDatabase) {
+    this.items = db.list('/items');
+    this.home = db.object('/home');
+
+    this.home.subscribe(snapshot => {
+      this.fullName = snapshot['fullName'];
+      this.email = snapshot['email'];
+      this.jobTitle = snapshot['jobTitle'];
+      this.about = snapshot['about'];
+      this.website = snapshot['website'];
+
+    });
+    // this.saveData();
   }
 
+  saveData() {
+    this.home.set({
+      fullName: 'Joeny Bui',
+      jobTitle: 'Software Developer',
+      email: 'joeny.bui@gmail.com',
+      about: 'I\'m a scientific software developer with a background in structural engineering.',
+      website: 'https://www.joenybui.com'
+    })
+  }
 
   ngOnInit(): void {
-
   }
 }

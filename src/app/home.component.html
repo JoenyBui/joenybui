@@ -110,6 +110,11 @@
   <hr>
 </div><!--/.container -->
 
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.$value}}
+  </li>
+</ul>
 
 <!--WORK DESCRIPTION -->
 <!--<div class="container desc">-->
