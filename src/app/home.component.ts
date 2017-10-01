@@ -8,6 +8,7 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectFactory, Fir
 })
 export class HomeComponent implements OnInit {
   items: FirebaseListObservable<any[]>;
+  blogs: FirebaseListObservable<any[]>;
   home: FirebaseObjectObservable<any>;
 
   title = 'app';
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router,
               db: AngularFireDatabase) {
     this.items = db.list('/items');
+    this.blogs = db.list('/blogs');
     this.home = db.object('/home');
 
     this.home.subscribe(snapshot => {
