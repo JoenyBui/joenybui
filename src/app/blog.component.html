@@ -1,28 +1,3 @@
 <div clas="container">
-  <label>
-    Title
-  </label>
-  <br/>
-  <input
-    type="text"
-    placeholder="Title"
-    name="title"
-    id="title"/>
-  <br/>
-  <label>
-    Body
-  </label>
-  <br/>
-  <!--<textarea-->
-    <!--name="body"-->
-    <!--id="body"-->
-    <!--rows="5"-->
-    <!--placeholder="Body Text"-->
-    <!--style="width: 100%">-->
-    <!--</textarea>-->
-  <writing-component elementId="blog-body"></writing-component>
-  <br/>
-  <button id="submit-button">
-    Submit
-  </button>
+  <div [innerHTML]="bodyHtml"></div>
 </div>
